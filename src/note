@@ -1,0 +1,9 @@
+
+Pages: mỗi router tương ứng có 1 Pages
+utils: chứa func gọi API
+action:
+component: 
+constants: chứa các hàm số
+
+-----------------------------------------------
+Cấu trúc component:
