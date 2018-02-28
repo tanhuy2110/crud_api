@@ -7,11 +7,9 @@ class CategoryItem extends Component {
             <tr>
                 <td>{index + 1}</td>
                 <td>{category.name}</td>
-                <td>
-                    
-                    <btn class="btn btn-sm btn-success "><i class="ti-slice"></i></btn>
-                    <btn class="btn btn-sm btn-danger "><i class="ti-dropbox-alt"></i></btn>
-                
+                <td>  
+                    <button type="submit" className="btn btn-info">Edit</button>
+                    <button type="submit" className="btn btn-danger">Delete</button>
                 </td>
             </tr>
         );

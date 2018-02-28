@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
 import CategoryItem from './CategoryItem';
+import {connect} from 'react-redux';
+import axios from 'axios';
+import {actFetchCategories} from './../../../action/index';
+import callApi from './../../../utils/apiCaller';
 
 class Category extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            categories: [],
+        }
+    }
+    
+    componentDidMount() {
+        callApi('category', 'GET', null).then(res=> {
+            //this.props.fetchAllCategories(res.data)
+            console.log(res.data);
+        });
+    }
+
     render() {
-        var categories = [
-            {
-                id: 1,
-                name: 'Food'
-            },
-            {
-                id: 1,
-                name: 'Drink'
-            }
-        ]
+        //var {categories} = this.props;
+        var categories = [];
+        
         return (
             <div className="card">
                 <div className="header">
@@ -51,4 +63,19 @@ class Category extends Component {
         return result;
     }
 }
-export default Category;
+
+const mapStateToProps = state => { 
+    return {
+        categories: state.categories
+    }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        fetchAllCategories: (categories) => {
+            dispatch(actFetchCategories);
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Category);

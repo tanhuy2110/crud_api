@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MenuTop from './components/MenuTop/MenuTop';
 import MenuLeft from './components/MenuLeft/MenuLeft';
 import Footer from './components/Footer/Footer';
-import Category from './components/Contents/Category/Category';
 import routes from './routes';
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 
@@ -16,10 +15,8 @@ class App extends Component {
 						<MenuTop/>
 						<div className="content">
 							<div className="container-fluid">
-								<div className="row">
-									<div className="col-md-12">
+								<div className="row">								
 									{ this.showContentMenus(routes) }
-									</div>
 								</div>
 								
 							</div>
